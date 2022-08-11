@@ -1,3 +1,8 @@
+import gym
+import numpy as np
+import random
+import itertools
+
 class culo_game:
     def __init__(self,n_j):
         self.players_data = []
@@ -73,4 +78,4 @@ class culo_game:
         for c in self.players_data[player]:
             hand_evaluation += -int(c[0])-1
         return hand_evaluation
-        
+
