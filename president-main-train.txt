@@ -1,0 +1,57 @@
+N_PLAYERS = 4
+MAX_GAME_STEPS = 200
+
+# specify agents 
+agent_lst = ['random','random','random','random']
+acum_agent_rewards = [0,0,0,0]
+
+game_done = False
+game_steps = 0
+
+j = president_game(N_PLAYERS)
+j.reset()
+
+while not game_done and game_steps <= MAX_GAME_STEPS:
+    
+    print(f'Active player is {j.active_player} with {len(j.players_data[j.active_player])} cards in hand')
+    
+    still_playing = [hand for hand in j.players_data if len(hand)!=0]
+        
+    if len(still_playing)<=1:
+        
+        j.placements += [s for s in range(4) if s not in j.placements]
+        game_done = True
+    
+    pos_plays = j.possible_plays()
+    encoded_pos_plays = [encode_play([play])[0] for play in pos_plays]
+    
+    play_rewards = [sum([9-(int(c[0])) for c in play]) for play in pos_plays]
+    
+    agent = agent_lst[j.active_player]
+    
+    # agent
+    if agent == 'random':
+        selected_play = random.randint(0,len(pos_plays)-1)
+        j.play_select(selected_play)
+        acum_agent_rewards[j.active_player] += play_rewards[selected_play]
+        print('played ',pos_plays[selected_play],' with reward ', play_rewards[selected_play])
+    elif agent == 'human':
+        print(f'Hand is {j.players_data[j.active_player]}, possible plays are :')
+        for i in range(len(pos_plays)):
+            print(i,':',pos_plays[i])
+        selected_play = int(input(f'Select your play by inputing its number between {0}-{len(pos_plays)-1}'))
+        j.play_select(selected_play)
+        acum_agent_rewards[j.active_player] += play_rewards[selected_play]
+        print('played ',pos_plays[selected_play],' with reward :', play_rewards[selected_play])
+    
+    
+    if len(j.players_data[j.active_player])==0 and j.active_player not in j.placements:
+        
+        j.placements.append(j.active_player)
+    
+    if j.stack != ['*']:
+        print(j.get_torch_state())
+    
+    game_steps +=1
+
+print(acum_agent_rewards)
