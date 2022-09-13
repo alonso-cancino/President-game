@@ -38,13 +38,18 @@ There's 3 main files:
 
 ## Example of running the model:
 
+After running the file agent_training3.py (which has the president_game.py module copied into it) you'll be asked to input a number of players and a number of games for training.
 
-**2 Players:**
+**Reward function:** the reward function $r$ for a play $s$ is a time-penalty reward, it awards $r(s) = -1$ for every play $s$ that doesn't empty the hand, $r(s)=0$ if your hand is already empty, or $r(s)=3-p$ if the play $s$ empties the hand, and your placement is $p\in$ { $0,...,n_p-1$ } (where $n_p$ is the number of players).
+
+**Note:** The definition of the torch state space encoding a game, means that training for different values of $n_p$ have to be done with different training loops (since the state space dimension is a function of the number of players), this could be incorpored into a bigger model in which the encoding for lower player numbers adds dummy variables for those dimensions that won't be used. Also note that both training and testing for 2 player games is more computationally expensive, since each time the function $game.possible_plays()$ is called, in the worst case a powerset of a set 20 has to be computed, which is in contrast much slower than a powerset of a set of size 10 (the worst case of the 4 player game).
+
+**2 Players:** Tested over 100 games, with 1000 games of training, getting a first-place rate of over 80% against a random agent.
 <p align="center">
   <img width="500" height="400" src="https://user-images.githubusercontent.com/62409116/189946997-c7d7021c-35c6-438f-a0fd-61fed60be1c7.png">
 </p>
 
-**4 Players:**
+**4 Players:** Tested over 1000 games, with 10000 games of training, getting a first-place rate of close to 44%, and a second-place rate of over 22%, averaging around 66% of ending on the top-half of the placement table against random agents.
 
 <p align="center">
   <img width="500" height="400" src="https://user-images.githubusercontent.com/62409116/189947050-38ff0ad5-a3be-4a96-b9fe-4c2ef4fe6d97.png">
