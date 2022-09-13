@@ -27,15 +27,22 @@ The first player to be without cards in hand in a game is named the president, t
 
 There's 3 main files:
 
-1. president_game.py: Implements the president_game class which encodes the game logic, with several functions and attributes.
-  - game.reset(): Deals a hand to every player, and sets the starting player as the player which has the $2$ of golds in hand.
-  - game.possible_plays(): Displays all the possible plays of the current player (game.active_player), if there's no valid plays from the active player other than passing, the function passes the turn to the next player (this computes a powerset of a set of size 20 when there's 2 players, so it can a bit computationally expensive).
-  - game.play_select(k): Selects the k-th numbered play retrieved from game.possible_plays(), and advances the game state after making such play. 
-  - game.players_data: Stores info on the game state, this is each players hand, cards on the stack, cards already played, active player and last player.
-  - game.get_torch_state(): Gets the torch state seen if the agent was the active player (this is hand lengths of opponents, cards in the stack, cards already played, and cards in hand).
-3. agent_training.py: Defines encoder and decoder functions that translates game states into torch tensors for training, then defines the neural network used for deep Q-learning, defines the masking function that hides illegal actions from the agent, and sets the training loop saving the current neural network values, stores the trained model weights into the file 'trained_model_weights_(number of players)p_(number of training games).pt'.
-5. test_agent.py: Tests the trained model exploiting the trained weights, for a fixed number of games against random agents.
+1. **president_game.py** : Implements the president_game class which encodes the game logic, with several functions and attributes.
+    - **game.reset()**: Deals a hand to every player, and sets the starting player as the player which has the $2$ of golds in hand.
+    - **game.possible_plays()**: Displays all the possible plays of the current player (game.active_player), if there's no valid plays from the active player other than passing, the function passes the turn to the next player (this computes a powerset of a set of size 20 when there's 2 players, so it can a bit computationally expensive).
+    - **game.play_select(k)**: Selects the k-th numbered play retrieved from game.possible_plays(), and advances the game state after making such play. 
+    - **game.players_data**: Stores info on the game state, this is each players hand, cards on the stack, cards already played, active player and last player.
+    - **game.get_torch_state()**: Gets the torch state seen if the agent was the active player (this is hand lengths of opponents, cards in the stack, cards already played, and cards in hand).
+2. **agent_training.py**: Defines encoder and decoder functions that translates game states into torch tensors for training, then defines the neural network used for deep Q-learning, defines the masking function that hides illegal actions from the agent, and sets the training loop saving the current neural network values, stores the trained model weights into the file 'trained_model_weights_(number of players)p_(number of training games).pt'.
+3. **test_agent.py**: Tests the trained model exploiting the trained weights, for a fixed number of games against random agents.
 
 ## Example of running the model:
 
+```
+import president_game
 
+game = president_game(4)
+```
+## Work in Progress:
+
+I'm in the process of learning how to, and developing a UI for the game, current (almost null) progress is under the 'GUI' folder.
