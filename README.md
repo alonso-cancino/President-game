@@ -39,9 +39,18 @@ There's 3 main files:
 ## Example of running the model:
 
 ```
+# import the president_game module.
 import president_game
 
-game = president_game(4)
+# start the game space with 4 players, deal hands and reset the game state.
+n_players = 4
+game = president_game(n_players)
+game.reset()
+
+# set some number of games.
+n_epochs = 1000
+
+
 ```
 ## Work in Progress:
 
