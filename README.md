@@ -39,12 +39,12 @@ There's 3 main files:
 ## Example of running the model:
 
 
-**4 Players:**
+**2 Players:**
 <p align="center">
   <img width="500" height="400" src="https://user-images.githubusercontent.com/62409116/189946997-c7d7021c-35c6-438f-a0fd-61fed60be1c7.png">
 </p>
 
-**2 Players:**
+**4 Players:**
 
 <p align="center">
   <img width="500" height="400" src="https://user-images.githubusercontent.com/62409116/189947050-38ff0ad5-a3be-4a96-b9fe-4c2ef4fe6d97.png">
