@@ -58,4 +58,4 @@ After running the file agent_training3.py (which has the president_game.py modul
 
 ## Work in Progress:
 
-I'm in the process of learning how to, and developing a UI for the game, current (almost null) progress is under the 'GUI' folder.
+I'm in the process of learning how to, and developing a UI for the game with the ability to perform human testing of the model, current (almost null) progress is under the 'GUI' folder.
