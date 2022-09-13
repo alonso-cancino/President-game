@@ -38,7 +38,7 @@ There's 3 main files:
 
 ## Example of running the model:
 
-After running the file agent_training3.py (which has the president_game.py module copied into it) you'll be asked to input a number of players and a number of games for training.
+After running the file agent_training3.py (which has the president_game.py module copied into it) you'll be asked to input a number of players and a number of games for training and will get as an output the file 'tested_model_weights_%p_%g.pt', this file is passed to determine the Q-learning policy for later testing, the file test_agent.py requires that file and tests the model against random agents outputting the graphs shown below.
 
 **Reward function:** the reward function $r$ for a play $s$ is a time-penalty reward, it awards $r(s) = -1$ for every play $s$ that doesn't empty the hand, $r(s)=0$ if your hand is already empty, or $r(s)=3-p$ if the play $s$ empties the hand, and your placement is $p\in$ { $0,...,n_p-1$ } (where $n_p$ is the number of players).
 
