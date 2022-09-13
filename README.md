@@ -44,7 +44,7 @@ After running the file agent_training3.py (which has the president_game.py modul
 
 **Note:** The definition of the torch state space encoding a game, means that training for different values of $n_p$ have to be done with different training loops (since the state space dimension is a function of the number of players), this could be incorpored into a bigger model in which the encoding for lower player numbers adds dummy variables for those dimensions that won't be used. Also note that both training and testing for 2 player games is more computationally expensive, since each time the function $game.possible_plays()$ is called, in the worst case a powerset of a set 20 has to be computed, which is in contrast much slower than a powerset of a set of size 10 (the worst case of the 4 player game).
 
-**2 Players:** Tested over 100 games, with 1000 games of training, getting a first-place rate of over 80% against a random agent.
+**2 Players:** Tested over 100 games, with 1000 games of training (less games due to the slower nature of the 2p game), getting a first-place rate of over 80% against a random agent.
 <p align="center">
   <img width="500" height="400" src="https://user-images.githubusercontent.com/62409116/189946997-c7d7021c-35c6-438f-a0fd-61fed60be1c7.png">
 </p>
