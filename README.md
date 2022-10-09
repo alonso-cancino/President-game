@@ -2,7 +2,7 @@
 
 ## Rules of the game:
 
-The game is played with a $40$ card spanish deck (this means removing all $8$ s and $9$ s from a usual 58 card deck), the game can be played by $2, 4, 5$ or $8$ players (numbers which can wholly divide the deck), the goal of the game is dumping your hand.
+The game is played with a $40$ card spanish deck (this means removing all $8$ s and $9$ from an usual 58 card spanish deck), the game can be played by $2, 4, 5$ or $8$ players (numbers which can wholly divide the deck), the goal of the game is dumping your hand.
 
 <p align="center">
   <img width="600" height="400" src="https://user-images.githubusercontent.com/62409116/189929379-18174679-c6ec-4e38-8f1a-239bfa527efb.PNG">
